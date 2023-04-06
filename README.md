@@ -10,4 +10,4 @@ You can search for recipe images and determine the number of images that are dis
 ```py
 API-KEY=
 ```
-3. Enter your API key after the `=`. **THIS IS IMPORTANT!**
+3. Enter your API key after the `=`, and put it in double `"` quotation marks. **THIS IS IMPORTANT!**
