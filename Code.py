@@ -4,6 +4,9 @@ from PIL import Image, ImageTk
 import requests
 import json
 import tkinter as tk
+import os
+from dotenv import load_dotenv
+
 
 class Recipe:
     def __init__(self, id, title, image_url):
@@ -16,8 +19,7 @@ class RecipeList:
     def __init__(self):
         self.recipes = []
 
-    def search(self, query, number):
-        api_key = "4a7e99096a6a41739e25be0eebb0cb1c"
+    def search(self, query, number, api-key):
         url = f"https://api.spoonacular.com/recipes/complexSearch?apiKey={api_key}&query={query}&number={number}"
         try:
             response = requests.get(url, timeout=10)
@@ -49,14 +51,14 @@ class RecipeList:
             time.sleep(3)
             error()
             self.recipes = []
-
+load_dotenv()
 recipe_list = RecipeList()
 
 while True:
     query = input("Enter a recipe search query: ")
     num_images = int(input("Enter the number of images you want to display (max. 32): "))
     print("Wait...")
-    recipe_list.search(query, num_images)
+    recipe_list.search(query, num_images, os.getenv("API-KEY"))
 
     if len(recipe_list.recipes) <= 32:
         break
