@@ -17,7 +17,7 @@ class RecipeList:
         self.recipes = []
 
     def search(self, query, number):
-        api_key = "4a7e99096a6a41739e25be0eebb0cb1c"
+        api_key = "YOUR-API-KEY-FOR-SPOOMCULAR"
         url = f"https://api.spoonacular.com/recipes/complexSearch?apiKey={api_key}&query={query}&number={number}"
         try:
             response = requests.get(url, timeout=10)
